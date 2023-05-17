@@ -52,10 +52,6 @@ table=DBCONN.table1
 #to increase/decrease polygon area(adjust line detection)
 ald=0  
 
-#danger area polygon coordinates
-area_1 = [(587,280),(617,280),(422,722),(375,682)]  # camera right coordinates
-area_2 = [(810,231),(881,779),(1019,779),(854,256)] # camera left coordinates
-
 ########################################## END OF VARIABLE DECLARATIONS ##########################################
 
 
@@ -72,6 +68,7 @@ create_table_ddl="CREATE TABLE IF NOT EXISTS video_analytics_data(\
    captured_image_name varchar(50)\
 );"
 
+fetch_polygon_cords_query="select polygon_json from danger_area_polygons;"
 
 connection = psycopg2.connect(user=user_name,
                               password=passwd,
@@ -79,6 +76,12 @@ connection = psycopg2.connect(user=user_name,
                               port=port,
                               database=database)
 cursor = connection.cursor()
+
+cursor.execute(fetch_polygon_cords_query)
+output = cursor.fetchall()
+op=output[0][0]
+area_1 = op['area1'] 
+area_2 =  op['area2']
 
 
 def store_data(alert_id,alert_time,tot_alerts,cap_img_name):

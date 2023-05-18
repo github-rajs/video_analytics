@@ -1,0 +1,13 @@
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-114 16:37:41.279534',5,'person_down','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-15 16:37:41.279534',5,'no_gloves','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-18 11:42:54.222371.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-16 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_helmett','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'no_gloves','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;
+ insert into video_analytics_data values('bangalore','station01','cam01','2023-05-17 16:37:41.279534',5,'person_down','05_17_16_37_41',612,'tmp/05_17_16_37_41_no_helmett_5.jpg');commit;

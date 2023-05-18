@@ -7,6 +7,7 @@ import time
 import numpy as np
 import json
 from IPython.display import clear_output
+from shapely.geometry import Polygon, box
 import logging
 import psycopg2
 from config import DBCONN,YOLO_MODEL
@@ -53,20 +54,6 @@ table=DBCONN.table1
 ald=0  
 
 ########################################## END OF VARIABLE DECLARATIONS ##########################################
-
-
-create_table_ddl="CREATE TABLE IF NOT EXISTS video_analytics_data(\
-   location varchar(50),\
-   station_no varchar(50),\
-   station_name varchar(50),\
-   camera_id varchar(50),\
-   cur_datetime timestamp,\
-   alert_id integer,\
-   alert_name varchar(30),\
-   alert_triggered_time varchar(30),\
-   total_num_alerts integer,\
-   captured_image_name varchar(50)\
-);"
 
 fetch_polygon_cords_query="select polygon_json from danger_area_polygons;"
 
@@ -153,7 +140,41 @@ def create_alert(cls_id,orig_images,cords_list,shoes_xyxy):
     return orig_images
 
 
+
+
+def point_in_polygon(point, polygon):
+    # Check if a point is inside a polygon
+    x, y = point
+    poly_points = np.array(polygon, np.int32)
+    return cv2.pointPolygonTest(poly_points, (x, y), False) >= 0
+
+
 def detect_person_crossline(frame,shoe_boxes):
+    for shoe_box in shoe_boxes:
+        x1, y1, x2, y2 = shoe_box
+        
+        
+        polygon_coords1 = area_1
+        polygon_coords2 = area_2
+        
+        polygon1 = Polygon(polygon_coords1)
+        polygon2 = Polygon(polygon_coords2)
+        
+        bbox_coords = shoe_box
+        bbox = box(*bbox_coords)
+        is_inside1 = polygon1.contains(bbox)
+        is_inside2 = polygon2.contains(bbox)
+
+        if is_inside1:
+            cv2.putText(frame, "Warning! Person crossed the Yellow Line", (45, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        elif is_inside2:
+            cv2.putText(frame, "Warning! Person crossed the Yellow Line", (45, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        else:
+            pass
+    return frame 
+
+
+def detect_person_crossline_old(frame,shoe_boxes):
     for shoe_box in shoe_boxes:
         #x1, y1, x2, y2 = shoe_box
 
